@@ -11,15 +11,27 @@ import TargetFee from "./../TargetFee/TargetFee";
 import RegularFee from "./../RegularFee/RegularFee";
 import {CREATE_FEE, REGISTRATION_FEE, REGULAR_FEE, TARGET_FEE, TYPE_OF_FEE} from "./../../constants/common";
 import RegistrationFee from "../RegistrationFee/RegistrationFee";
-import {POSTING_FEE, VIEW_FEE} from "../../constants/common";
+import {CREATE_PODCAST, NEW_PODCAST, POSTING_FEE, SHARE_PODCAST, VIEW_FEE} from "../../constants/common";
 import PostingFee from "../PostingFee/PostingFee";
 import ViewFee from "../ViewFee/ViewFee";
+import CreatePodcast from "../CreatePodcast/CreatePodcast";
+import SharePodcast from "../SharePodcast/SharePodcast";
+import NewPodcast from "../NewPodcast/NewPodcast";
 
 const CharityRouter = ({activePanel}) => {
     return (
         <View id="main" activePanel={activePanel}>
             <Panel id={CREATE_FEE}>
-                <CreateFee/>
+                <CreatePodcast/>
+            </Panel>
+            <Panel id={CREATE_PODCAST}>
+                <CreatePodcast/>
+            </Panel>
+            <Panel id={SHARE_PODCAST}>
+                <SharePodcast/>
+            </Panel>
+            <Panel id={NEW_PODCAST}>
+                <NewPodcast/>
             </Panel>
             <Panel id={TYPE_OF_FEE}>
                 <TypeOfFee/>

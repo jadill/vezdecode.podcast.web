@@ -1,6 +1,9 @@
 export const PROJECT_NAME = 'Vezdecode.Charity.Web';
 
 /* panels name */
+export const CREATE_PODCAST = 'create_podcast';
+export const SHARE_PODCAST = 'share_podcast';
+export const NEW_PODCAST='new_podcast';
 export const CREATE_FEE = 'create_fee';
 export const TYPE_OF_FEE = 'type_of_fee';
 export const TARGET_FEE = 'target_fee';
