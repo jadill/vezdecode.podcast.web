@@ -1,0 +1,66 @@
+.edit-podcast__timecode {
+  display: flex;
+
+  .edit-podcast__timecode__title_input {
+    flex-grow: 1;
+    margin-right: 10px;
+  }
+
+  .edit-podcast__timecode__time_input {
+    width: 100px;
+  }
+}
+
+.edit-podcast__timecode__remove {
+  border-radius: 14px;
+  padding: 0;
+  margin: 10px 16px 10px 0;
+
+  .Button__before {
+    margin-left: 0;
+
+    .Icon {
+      margin: 0;
+    }
+  }
+}
+
+.edit-podcast__controls {
+  display: flex;
+  height: 60px;
+
+  .edit-podcast__controls__block {
+    margin: 4px 0 8px;
+    flex-grow: 1;
+
+    &:first-child {
+      margin-left: 8px;
+    }
+
+    &:nth-child(2){
+    }
+
+    &:last-child {
+      flex-grow: 0;
+      margin-right: 8px;
+    }
+
+    .edit-podcast__controls__block__button {
+      padding: 8px;
+      margin: 0 2px;
+
+
+      .Button__before {
+        margin-left: 0;
+        height: 28px;
+
+        .Icon {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+
+

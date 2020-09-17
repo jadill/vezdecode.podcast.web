@@ -9,6 +9,8 @@ export const REGISTRATION_FEE = 'registration_fee';
 export const POSTING_FEE = 'posting_fee';
 export const VIEW_FEE = 'view_fee';
 
+export const EDIT_PODCAST = 'edit_podcast';
+
 /* actions name */
 export const SET_ACTIVE_PANEL = 'SET_ACTIVE_PANEL';
 export const SET_REGULAR_FEE = 'SET_REGULAR_FEE';
