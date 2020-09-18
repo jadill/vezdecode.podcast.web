@@ -3,48 +3,104 @@ import {connect} from 'react-redux';
 
 import registerServiceWorker from './../../registerServiceWorker';
 
-import {Panel, View} from '@vkontakte/vkui';
+import {ActionSheet, ActionSheetItem, Panel, View} from '@vkontakte/vkui';
+import {removeMusic, setActivePanel, setActivePopout, setFormNewPodcastAvailability} from "../../actions/actionCreator";
 import '@vkontakte/vkui/dist/vkui.css';
-import CreateFee from "./../CreateFee/CreateFee";
-import TypeOfFee from "./../TypeOfFee/TypeOfFee";
-import TargetFee from "./../TargetFee/TargetFee";
-import RegularFee from "./../RegularFee/RegularFee";
-import {CREATE_FEE, REGISTRATION_FEE, REGULAR_FEE, TARGET_FEE, TYPE_OF_FEE} from "./../../constants/common";
-import RegistrationFee from "../RegistrationFee/RegistrationFee";
-import {POSTING_FEE, VIEW_FEE} from "../../constants/common";
-import PostingFee from "../PostingFee/PostingFee";
-import ViewFee from "../ViewFee/ViewFee";
+import {
+    ADD_MUSIC,
+    CREATE_PODCAST,
+    EDIT_PODCAST,
+    MUSIC_ACTION,
+    NEW_PODCAST,
+    SET_AVAILABILITY,
+    SHARE_PODCAST, VIEW_PODCAST
+} from "../../constants/common";
+import EditPodcast from "../EditPodcast/EditPodcast";
+import AddMusic from "../AddMusic/AddMusic";
+import CreatePodcast from "../CreatePodcast/CreatePodcast";
+import SharePodcast from "../SharePodcast/SharePodcast";
+import NewPodcast from "../NewPodcast/NewPodcast";
+import ViewPodcast from "../ViewPodcast/ViewPodcast";
 
-const CharityRouter = ({activePanel}) => {
-    return (
-        <View id="main" activePanel={activePanel}>
-            <Panel id={CREATE_FEE}>
-                <CreateFee/>
-            </Panel>
-            <Panel id={TYPE_OF_FEE}>
-                <TypeOfFee/>
-            </Panel>
-            <Panel id={TARGET_FEE}>
-                <TargetFee/>
-            </Panel>
-            <Panel id={REGULAR_FEE}>
-                <RegularFee/>
-            </Panel>
-            <Panel id={REGISTRATION_FEE}>
-                <RegistrationFee/>
-            </Panel>
-            <Panel id={POSTING_FEE}>
-                <PostingFee/>
-            </Panel>
-            <Panel id={VIEW_FEE}>
-                <ViewFee/>
-            </Panel>
-        </View>
-    )
+class PodcastRouter extends React.Component {
+
+    get popout() {
+        const {activePopout, setActivePopout, removeMusic, setActivePanel, setFormNewPodcastAvailability} = this.props;
+        if (activePopout === MUSIC_ACTION) {
+            return (
+                <ActionSheet onClose={() => setActivePopout(null)}>
+                    <ActionSheetItem autoclose
+                                     onClick={() => {
+                                         setActivePopout(null);
+                                         setActivePanel(ADD_MUSIC);
+                                     }}>
+                        Изменить музыку
+                    </ActionSheetItem>
+                    <ActionSheetItem autoclose mode="destructive"
+                                     onClick={() => {
+                                         setActivePopout(null);
+                                         removeMusic();
+                                     }}>
+                        Удалить музыку
+                    </ActionSheetItem>
+                    {/*{osname === IOS && <ActionSheetItem autoclose mode="cancel">Отменить</ActionSheetItem>}*/}
+                </ActionSheet>
+            );
+        }
+        if (activePopout === SET_AVAILABILITY) {
+            return (
+                <ActionSheet onClose={() => setActivePopout(null)}>
+                    <ActionSheetItem autoclose
+                                     onClick={() => {
+                                         setFormNewPodcastAvailability("Всем пользователям");
+                                     }}
+                    >
+                        Всем пользователям
+                    </ActionSheetItem>
+                    <ActionSheetItem autoclose
+                                     onClick={() => {
+                                         setFormNewPodcastAvailability("Только мне");
+                                     }}
+                    >
+                        Только мне
+                    </ActionSheetItem>
+                    {/*{osname === IOS && <ActionSheetItem autoclose mode="cancel">Отменить</ActionSheetItem>}*/}
+                </ActionSheet>
+            );
+        }
+        return null;
+    }
+
+    render = () => {
+        const {activePanel} = this.props;
+        return (
+            <View id="main" activePanel={activePanel} popout={this.popout}>
+                <Panel id={CREATE_PODCAST}>
+                    <CreatePodcast/>
+                </Panel>
+                <Panel id={NEW_PODCAST}>
+                    <NewPodcast/>
+                </Panel>
+                <Panel id={EDIT_PODCAST}>
+                    <EditPodcast/>
+                </Panel>
+                <Panel id={ADD_MUSIC}>
+                    <AddMusic/>
+                </Panel>
+                <Panel id={VIEW_PODCAST}>
+                    <ViewPodcast/>
+                </Panel>
+                <Panel id={SHARE_PODCAST}>
+                    <SharePodcast/>
+                </Panel>
+            </View>
+        );
+    }
 }
 
 export default connect(state => ({
     activePanel: state.panel.active_panel,
-}))(CharityRouter);
+    activePopout: state.panel.active_popout,
+}), {setActivePanel, setActivePopout, removeMusic, setFormNewPodcastAvailability})(PodcastRouter);
 
 registerServiceWorker();
