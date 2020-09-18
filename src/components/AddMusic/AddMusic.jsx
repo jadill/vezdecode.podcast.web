@@ -10,7 +10,7 @@ import MusicItem from "./components/Item";
 export const AUDIO_LIBRARY = [
     {
         id: 3201,
-        icon: `${process.env.PUBLIC_URL}/avatars/Nice.png`,
+        icon: `${process.env.PUBLIC_URL}/avatars/nice.png`,
         sound: `${process.env.PUBLIC_URL}/sound/CLICK_Nice.mp3`,
         singer: "CLICK",
         name: "Nice"
