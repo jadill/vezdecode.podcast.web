@@ -48,6 +48,15 @@ class PodcastRouter extends React.Component {
                 <Panel id={ADD_MUSIC}>
                     <AddMusic/>
                 </Panel>
+                <Panel id={CREATE_PODCAST}>
+                    <CreatePodcast/>
+                </Panel>
+                <Panel id={SHARE_PODCAST}>
+                    <SharePodcast/>
+                </Panel>
+                <Panel id={NEW_PODCAST}>
+                    <NewPodcast/>
+                </Panel>
             </View>
         );
     }
