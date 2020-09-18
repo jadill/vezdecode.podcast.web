@@ -1,8 +1,9 @@
 import {combineReducers} from 'redux';
 
 import panel from "./panel";
-import fee from "./fee";
+import timecode from "./timecode";
+import effects from "./effects";
 
-const rootReducer = combineReducers({panel, fee});
+const rootReducer = combineReducers({panel, timecode, effects});
 
 export default rootReducer;

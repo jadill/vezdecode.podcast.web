@@ -3,23 +3,59 @@ import {connect} from 'react-redux';
 
 import registerServiceWorker from './../../registerServiceWorker';
 
-import {Panel, View} from '@vkontakte/vkui';
+import {ActionSheet, ActionSheetItem, IOS, Panel, View} from '@vkontakte/vkui';
+import {removeMusic, setActivePanel, setActivePopout} from "../../actions/actionCreator";
 import '@vkontakte/vkui/dist/vkui.css';
-import {CREATE_FEE} from "./../../constants/common";
+import {ADD_MUSIC, EDIT_PODCAST, MUSIC_ACTION} from "../../constants/common";
 import EditPodcast from "../EditPodcast/EditPodcast";
+import AddMusic from "../AddMusic/AddMusic";
 
-const CharityRouter = ({activePanel}) => {
-    return (
-        <View id="main" activePanel={activePanel}>
-            <Panel id={CREATE_FEE}>
-                <EditPodcast/>
-            </Panel>
-        </View>
-    )
+class PodcastRouter extends React.Component {
+
+    get popout() {
+        const {activePopout, setActivePopout, removeMusic, setActivePanel} = this.props;
+        if (activePopout === MUSIC_ACTION) {
+            return (
+                <ActionSheet onClose={() => setActivePopout(null)}>
+                    <ActionSheetItem autoclose
+                                     onClick={() => {
+                                         setActivePopout(null);
+                                         setActivePanel(ADD_MUSIC);
+                                     }}>
+                        Изменить музыку
+                    </ActionSheetItem>
+                    <ActionSheetItem autoclose mode="destructive"
+                                     onClick={() => {
+                                         setActivePopout(null);
+                                         removeMusic();
+                                     }}>
+                        Удалить музыку
+                    </ActionSheetItem>
+                    {/*{osname === IOS && <ActionSheetItem autoclose mode="cancel">Отменить</ActionSheetItem>}*/}
+                </ActionSheet>
+            );
+        }
+        return null;
+    }
+
+    render = () => {
+        const {activePanel} = this.props;
+        return (
+            <View id="main" activePanel={activePanel} popout={this.popout}>
+                <Panel id={EDIT_PODCAST}>
+                    <EditPodcast/>
+                </Panel>
+                <Panel id={ADD_MUSIC}>
+                    <AddMusic/>
+                </Panel>
+            </View>
+        );
+    }
 }
 
 export default connect(state => ({
     activePanel: state.panel.active_panel,
-}))(CharityRouter);
+    activePopout: state.panel.active_popout,
+}), {setActivePanel, setActivePopout, removeMusic})(PodcastRouter);
 
 registerServiceWorker();
