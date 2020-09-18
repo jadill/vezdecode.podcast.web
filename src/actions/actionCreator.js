@@ -1,6 +1,15 @@
 import {
-    ADD_TIMECODE,
+    ADD_TIMECODE, CLEAR_EFFECTS,
+    CLEAR_FORM_NEW_PODCAST, CLEAR_TIMECODE,
     EDIT_TIMECODE,
+    FORM_NEW_PODCAST_SET_ADULT_CONTENT,
+    FORM_NEW_PODCAST_SET_AVAILABILITY,
+    FORM_NEW_PODCAST_SET_COVER,
+    FORM_NEW_PODCAST_SET_DESCRIPTION,
+    FORM_NEW_PODCAST_SET_EXCLUDE_EPISODE,
+    FORM_NEW_PODCAST_SET_FILE,
+    FORM_NEW_PODCAST_SET_TITLE,
+    FORM_NEW_PODCAST_SET_TRAILER,
     REMOVE_MUSIC,
     REMOVE_TIMECODE,
     SET_ACCRETION,
@@ -20,6 +29,49 @@ export const setActivePopout = (active_popout) => ({
     active_popout,
 });
 
+export const setFormNewPodcastCover = (cover) => ({
+    type: FORM_NEW_PODCAST_SET_COVER,
+    cover,
+});
+
+export const setFormNewPodcastTitle = (title) => ({
+    type: FORM_NEW_PODCAST_SET_TITLE,
+    title,
+});
+
+export const setFormNewPodcastDescription = (description) => ({
+    type: FORM_NEW_PODCAST_SET_DESCRIPTION,
+    description,
+});
+
+export const setFormNewPodcastFile = (sound_file) => ({
+    type: FORM_NEW_PODCAST_SET_FILE,
+    sound_file,
+});
+
+export const setFormNewPodcastAdultContent = (adult_content) => ({
+    type: FORM_NEW_PODCAST_SET_ADULT_CONTENT,
+    adult_content,
+});
+
+export const setFormNewPodcastExcludeEpisode = (exclude_episode) => ({
+    type: FORM_NEW_PODCAST_SET_EXCLUDE_EPISODE,
+    exclude_episode,
+});
+
+export const setFormNewPodcastTrailer = (trailer) => ({
+    type: FORM_NEW_PODCAST_SET_TRAILER,
+    trailer,
+});
+
+export const setFormNewPodcastAvailability = (availability) => ({
+    type: FORM_NEW_PODCAST_SET_AVAILABILITY,
+    availability,
+});
+
+export const clearFormNewPodcast = () => ({
+    type: CLEAR_FORM_NEW_PODCAST,
+});
 
 export const addTimecode = (id) => ({
     type: ADD_TIMECODE,
@@ -53,4 +105,12 @@ export const setMusic = (value) => ({
 
 export const removeMusic = () => ({
     type: REMOVE_MUSIC,
+});
+
+export const clearTimecodes = () => ({
+    type: CLEAR_TIMECODE,
+});
+
+export const clearEffects = () => ({
+    type: CLEAR_EFFECTS,
 });

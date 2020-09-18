@@ -1,7 +1,7 @@
-import {EDIT_PODCAST, SET_ACTIVE_PANEL, SET_ACTIVE_POPOUT,} from '../constants/common';
+import {CREATE_PODCAST, SET_ACTIVE_PANEL, SET_ACTIVE_POPOUT,} from '../constants/common';
 
 const defaultState = {
-    active_panel: EDIT_PODCAST,
+    active_panel: CREATE_PODCAST,
     active_popout: null,
 };
 

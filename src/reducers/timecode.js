@@ -1,5 +1,5 @@
 import {
-    ADD_TIMECODE, EDIT_TIMECODE, REMOVE_TIMECODE
+    ADD_TIMECODE, CLEAR_TIMECODE, EDIT_TIMECODE, REMOVE_TIMECODE
 } from '../constants/common';
 
 const panel = (state = [], {type, id, title, time,}) => {
@@ -10,7 +10,7 @@ const panel = (state = [], {type, id, title, time,}) => {
                 {
                     id,
                     title: '',
-                    time: '',
+                    time: '00:00',
                 },
             ];
         case EDIT_TIMECODE:
@@ -23,6 +23,8 @@ const panel = (state = [], {type, id, title, time,}) => {
             });
         case REMOVE_TIMECODE:
             return [...state].filter(timecode => timecode.id !== id);
+        case CLEAR_TIMECODE:
+            return [];
         default:
             return state;
     }

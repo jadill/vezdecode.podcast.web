@@ -1,0 +1,28 @@
+#podcast_card {
+  display: flex;
+  padding: 12px;
+}
+
+#podcast_cover {
+  height: 72px;
+  width: 72px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+#podcast_name {
+  height: 100%;
+  width: 100%;
+}
+
+.Icon32PictureOutline {
+  position: center;
+}
+
+.new-podcast__placeholder {
+  .Placeholder__in {
+    padding-bottom: 12px;
+    padding-top: 12px;
+  }
+}

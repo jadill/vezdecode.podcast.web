@@ -1,4 +1,4 @@
-import {REMOVE_MUSIC, SET_ACCRETION, SET_FADING, SET_MUSIC} from '../constants/common';
+import {CLEAR_EFFECTS, REMOVE_MUSIC, SET_ACCRETION, SET_FADING, SET_MUSIC} from '../constants/common';
 
 const defaultState = {
     accretion: false,
@@ -28,6 +28,10 @@ const effects = (state = defaultState, {type, value}) => {
                 ...state,
                 music: null,
             };
+        case CLEAR_EFFECTS:
+            return {
+                ...defaultState,
+            }
         default:
             return state;
     }

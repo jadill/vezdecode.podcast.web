@@ -1,14 +1,15 @@
 import React from 'react';
-import {Button, PanelHeader, Placeholder} from "@vkontakte/vkui";
+import {Button, PanelHeader, PanelHeaderClose, Placeholder} from "@vkontakte/vkui";
 
 import '../../index.scss'
 import {connect} from "react-redux";
 import {setActivePanel} from "../../actions/actionCreator";
 import Icon56CheckCircleOutline from '@vkontakte/icons/dist/56/check_circle_outline';
+import {CREATE_PODCAST} from "../../constants/common";
 
-const SharePodcast = () => (
+const SharePodcast = ({setActivePanel}) => (
     <React.Fragment>
-        <PanelHeader>Подкасты</PanelHeader>
+        <PanelHeader left={<PanelHeaderClose onClick={() => setActivePanel(CREATE_PODCAST)}/>}>Подкасты</PanelHeader>
         <Placeholder
             stretched
             icon={<Icon56CheckCircleOutline fill="var(--accent)"/>}

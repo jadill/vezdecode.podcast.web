@@ -21,7 +21,7 @@ import Icon28Scissors from "./icons/Scissors";
 import Icon28BarChartUp from "./icons/BarChartUp";
 import Icon28BarChartDown from "./icons/BarChartDown";
 import TimecodeItem from "./components/Item";
-import {ADD_MUSIC, MUSIC_ACTION} from "../../constants/common";
+import {ADD_MUSIC, MUSIC_ACTION, NEW_PODCAST} from "../../constants/common";
 import {AUDIO_LIBRARY} from "../AddMusic/AddMusic";
 
 class EditPodcast extends React.Component {
@@ -33,7 +33,7 @@ class EditPodcast extends React.Component {
         } = this.props;
         return (
             <React.Fragment>
-                <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel("")}/>}>
+                <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel(NEW_PODCAST)}/>}>
                     Редактирование
                 </PanelHeader>
                 <CardGrid style={{marginTop: "20px"}}>

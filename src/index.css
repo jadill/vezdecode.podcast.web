@@ -29,4 +29,21 @@
   border-radius: 10px;
 }
 
+.view-podcast__main {
+  padding-bottom: 75px;
+  padding-top: 0;
+}
+.view-podcast__main .Group .Title {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.view-podcast__main .Group .Text {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.view-podcast__main .Tappable {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 /*# sourceMappingURL=index.css.map */

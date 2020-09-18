@@ -20,11 +20,34 @@
 
 .progress {
   margin-bottom: 0.25rem;
+
   .Progress__in {
     background: var(--dynamic_green);
   }
 }
 
-.border10{
+.border10 {
   border-radius: 10px;
+}
+
+.view-podcast__main {
+  padding-bottom: 75px;
+  padding-top: 0;
+
+  .Group {
+    .Title {
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+
+    .Text {
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+  }
+
+  .Tappable {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
